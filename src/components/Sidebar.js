@@ -1,6 +1,6 @@
 export default function Sidebar (){
 
-    const accounts = ["bad.vibes.memes", "chibirdart", "razoesparaacreditar", "adorable_animals", "smallcutecats"];
+    const accounts = [{username: "bad.vibes.memes", reason:"Segue você"}, {username: "chibirdart", reason:"Segue você"}, {username: "razoesparaacreditar", reason:"Novo no Instagram"}, {username: "adorable_animals", reason:"Segue você"}, {username: "smallcutecats", reason:"Segue você"}];
     const links =["Sobre • Ajuda • Imprensa • API • Carreiras • Privacidade • Termos • Localizações • Contas mais relevantes • Hashtags • Idioma"]
 
     const FirstSugestion = (props) => {
@@ -22,7 +22,7 @@ export default function Sidebar (){
                     <img src={"assets/img/" + props.account + ".svg"} />
                     <div className="texto">
                         <div className="nome">{props.account}</div>
-                        <div className="razao">Segue você</div>
+                        <div className="razao">{props.reason}</div>
                     </div>
                 </div>
                 <div className="seguir">Seguir</div>
@@ -37,7 +37,7 @@ export default function Sidebar (){
                     Sugestões para você
                     <div>Ver tudo</div>
                 </div>
-                {accounts.map(account => <Sugestion account={account}/>)}
+                {accounts.map(({username, reason}) => <Sugestion account={username} reason={reason}/>)}
             </div>
             <div className="links">
                 {links}
