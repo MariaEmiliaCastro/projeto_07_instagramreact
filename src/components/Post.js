@@ -3,7 +3,7 @@ export default function Post () {
     const postProps = [{account: 'meowed', postImg: 'gato-telefone', curtidas: 'respondeai'}, {account: 'barked', postImg: 'dog', curtidas: 'adorable_animals'}];
     const acoes = ["heart-outline", "chatbubble-outline", "paper-plane-outline"];
 
-    const Topo = (props) => {
+    const Top = (props) => {
         return (
             <div className="topo">
                 <div className="usuario">
@@ -17,7 +17,7 @@ export default function Post () {
         )
     }
 
-    const Conteudo = (props) => {
+    const Content = (props) => {
         return(
             <div className="conteudo">
                 <img src={"assets/img/" + props.postImg + ".svg"} />
@@ -25,7 +25,7 @@ export default function Post () {
         )
     }
 
-    const Curtidas = (props) => {
+    const Liked = (props) => {
         return (
             <div class="curtidas">
                 <img src={"assets/img/" + props.curtida + ".svg"} />
@@ -39,8 +39,8 @@ export default function Post () {
     const SinglePost = (props) => {
         return (
             <div className="post">
-                <Topo account={props.account} />
-                <Conteudo postImg={props.postImg} />
+                <Top account={props.account} />
+                <Content postImg={props.postImg} />
                 <div class="fundo">
                     <div class="acoes">
                     <div>
@@ -50,7 +50,7 @@ export default function Post () {
                         <ion-icon name="bookmark-outline"></ion-icon>
                     </div>
                     </div>
-                    <Curtidas curtida={props.curtida} />
+                    <Liked curtida={props.curtida} />
                 </div>
             </div>
         )
