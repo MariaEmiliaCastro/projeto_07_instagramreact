@@ -7,7 +7,7 @@ export default function Sidebar (){
         return (
             <div className="usuario">
                 <img src={"assets/img/" + props.account + ".svg"} />
-                <div class="texto">
+                <div className="texto">
                     <strong>{props.account}</strong>
                     {props.userName}
                 </div>

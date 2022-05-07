@@ -1,6 +1,6 @@
 export default function Post () {
 
-    const postProps = [{account: 'meowed', postImg: 'gato-telefone', curtidas: 'respondeai'}, {account: 'barked', postImg: 'dog', curtidas: 'adorable_animals'}];
+    const postProps = [{account: 'meowed', postImg: 'gato-telefone', curtidas: 'respondeai', numberOfLikes: "100.009"}, {account: 'barked', postImg: 'dog', curtidas: 'adorable_animals', numberOfLikes: "1.000.009"}];
     const acoes = ["heart-outline", "chatbubble-outline", "paper-plane-outline"];
 
     const Top = (props) => {
@@ -27,10 +27,10 @@ export default function Post () {
 
     const Liked = (props) => {
         return (
-            <div class="curtidas">
+            <div className="curtidas">
                 <img src={"assets/img/" + props.curtida + ".svg"} />
-                <div class="texto">
-                    Curtido por <strong>{props.curtida}</strong> e <strong>outras 101.523 pessoas</strong>
+                <div className="texto">
+                    Curtido por <strong>{props.curtida}</strong> e <strong>outras {props.numLikes} pessoas</strong>
                 </div>
             </div>
         )
@@ -50,7 +50,7 @@ export default function Post () {
                         <ion-icon name="bookmark-outline"></ion-icon>
                     </div>
                     </div>
-                    <Liked curtida={props.curtida} />
+                    <Liked curtida={props.curtida} numLikes={props.numLikes} />
                 </div>
             </div>
         )
@@ -58,7 +58,7 @@ export default function Post () {
 
     return (
         <div>
-            {postProps.map(({account, postImg, curtidas}) => <SinglePost account={account} postImg={postImg} curtida={curtidas}/>)}
+            {postProps.map(({account, postImg, curtidas, numberOfLikes}) => <SinglePost account={account} postImg={postImg} curtida={curtidas} numLikes={numberOfLikes}/>)}
         </div>
     )
 }
