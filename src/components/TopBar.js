@@ -1,5 +1,7 @@
 export default function TopBar() {
 
+    const icones = ["paper-plane-outline", "compass-outline", "heart-outline", "person-outline"];
+
     function Logo() {
         return (
             <div className="logo">
@@ -10,16 +12,20 @@ export default function TopBar() {
         )
     }
 
-    const icones = ["paper-plane-outline", "compass-outline", "heart-outline", "person-outline"];
+    const DivIcon = (props) => {
+        return (
+            <div className={props.class}>
+                <ion-icon name={props.icon}></ion-icon>
+            </div>
+        )
+    }
 
     return (
         <div className="navbar">
             <div className="container">
                 <Logo />
 
-                <div className="logo-mobile">
-                    <ion-icon name="logo-instagram"></ion-icon>
-                </div>
+                <DivIcon class="logo-mobile" icon="logo-instagram" />
 
                 <div className="instagram-mobile">
                     <img src="assets/img/logo.png" />
@@ -33,9 +39,7 @@ export default function TopBar() {
                     {icones.map(icon => <ion-icon name={icon}></ion-icon>)}
                 </div>
 
-                <div className="icones-mobile">
-                    <ion-icon name="paper-plane-outline"></ion-icon>
-                </div>
+                <DivIcon class="icones-mobile" icon="paper-plane-outline" />
             </div>
         </div>
     )
