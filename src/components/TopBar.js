@@ -25,7 +25,7 @@ export default function TopBar() {
             <div className="container">
                 <Logo />
 
-                <DivIcon class="logo-mobile" icon="logo-instagram" />
+                <DivIcon className="logo-mobile" icon="logo-instagram" />
 
                 <div className="instagram-mobile">
                     <img src="assets/img/logo.png" />
@@ -39,7 +39,7 @@ export default function TopBar() {
                     {icones.map(icon => <ion-icon name={icon}></ion-icon>)}
                 </div>
 
-                <DivIcon class="icones-mobile" icon="paper-plane-outline" />
+                <DivIcon className="icones-mobile" icon="paper-plane-outline" />
             </div>
         </div>
     )

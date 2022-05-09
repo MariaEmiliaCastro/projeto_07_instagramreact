@@ -1,7 +1,13 @@
+import React, { useState } from 'react';
+
+
 export default function Post () {
 
+    const [liked, setLiked] = useState(true);
+    const [color, setColor] = useState("");
+    const [outline, setOutline] = useState('-outline');
     const postProps = [{account: 'meowed', postImg: 'gato-telefone', curtidas: 'respondeai', numberOfLikes: "100.009"}, {account: 'barked', postImg: 'dog', curtidas: 'adorable_animals', numberOfLikes: "1.000.009"}];
-    const acoes = ["heart-outline", "chatbubble-outline", "paper-plane-outline"];
+    const acoes = ["chatbubble-outline", "paper-plane-outline"];
 
     const Top = (props) => {
         return (
@@ -36,19 +42,32 @@ export default function Post () {
         )
     }
 
+    const LikeButton = () => {
+        liked === false ? setLiked(true) : setLiked(false);
+        
+        if(liked === true){
+            setOutline("");
+            setColor("#ED4956");
+        }else{
+            setOutline("-outline");
+            setColor("");
+        }
+    }
+
     const SinglePost = (props) => {
         return (
             <div className="post">
                 <Top account={props.account} />
                 <Content postImg={props.postImg} />
                 <div class="fundo">
-                    <div class="acoes">
-                    <div>
-                        {acoes.map(acao => <ion-icon name={acao}></ion-icon>)}
-                    </div>
-                    <div>
-                        <ion-icon name="bookmark-outline"></ion-icon>
-                    </div>
+                    <div class="acoes">                       
+                        <div>
+                            <ion-icon name={"heart" + outline} style={{color:color}} onClick={LikeButton}></ion-icon>
+                            {acoes.map(acao => <ion-icon name={acao}></ion-icon>)}
+                        </div>
+                        <div>
+                            <ion-icon name="bookmark-outline"></ion-icon>
+                        </div>
                     </div>
                     <Liked curtida={props.curtida} numLikes={props.numLikes} />
                 </div>
